@@ -1,0 +1,17 @@
+{# {% set page_title = "app.index.title" | trans %} #}
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h1>{{ name }}</h1>
+
+	<table>
+	{% for post in posts %}
+		<tr>
+			<td>{{ post.titre }}</td>
+			<td>{{ post.author }}</td>
+			<td>{{ post.datecreate | date("d/m/Y à H:i") }}</td>
+			<td><a class="btn" href="{{ path("app_post_show_get", {id: post.id}) }}">👀</a></td>
+		</tr>
+	{% endfor %}
+	<table>
+{% endblock %}
