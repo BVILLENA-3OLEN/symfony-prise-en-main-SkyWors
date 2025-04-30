@@ -1,0 +1,11 @@
+app.index.title: "Accueil"
+app.index.description: "Bienvenue %name%"
+
+app.helloname.title: "Hello"
+
+app.post.create.title: "Créer un article"
+
+app.form.title: "Titre"
+app.form.content: "Contenu"
+app.form.datecreate: "Date de création"
+app.form.author: "Auteur"

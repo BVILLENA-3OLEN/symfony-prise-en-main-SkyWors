@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block title %}{{ page_title }}{% endblock %}</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		{% block stylesheets %}
+		{% endblock %}
+
+		{% block javascripts %}
+			{% block importmap %}{{ importmap('app') }}{% endblock %}
+		{% endblock %}
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="{{ path('app_index_get')}}">Index</a>
+			{# <a class="navbar-brand" href="{{ path('app_hello_name_get') }}">Hello</a> #}
+			{% if is_granted("ROLE_ADMIN") %}
+				<a class="navbar-brand" href="{{ path('app_post_create_get') }}">Create Post</a>
+			{% endif %}
+			{# <a class="navbar-brand" href="{{ path('app_post_edit_get') }}">Modifier un post</a> #}
+			{# <a class="navbar-brand" href="{{ path('app_post_show_get') }}">Afficher les posts</a> #}
+			{% if is_granted("IS_AUTHENTICATED") %}
+				<a class="navbar-brand" href="{{ path('app_logout') }}">Dégage</a>
+			{% endif %}
+		</nav>
+
+		{% block body %}{% endblock %}
+	</body>
+</html>
